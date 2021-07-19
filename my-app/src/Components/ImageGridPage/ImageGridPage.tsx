@@ -1,17 +1,11 @@
 import React, {FunctionComponent, useEffect} from 'react';
 import { useSelector } from 'react-redux';
 import { getImages } from "../../state/actions/actions";
-import Image from "../Image";
+import Grid from "../Grid/Grid";
 
-interface IImageGrid {
-
-}
-
-const ImageGridPage: FunctionComponent<IImageGrid> = () => {
+const ImageGridPage: FunctionComponent = () => {
     // @ts-ignore // TODO: state fix type
     const { images } = useSelector(state => state);
-
-    console.log(images)
 
     useEffect(() => {
         // @ts-ignore // TODO: state fix type
@@ -21,15 +15,9 @@ const ImageGridPage: FunctionComponent<IImageGrid> = () => {
     }, [])
 
     return (
-        <div>
-            {Array.isArray(images) && images.map(({ alt_description: altDescription, id, urls }) => (
-                <Image
-                    key={id}
-                    src={urls.thumb}
-                    alt={altDescription}
-                />
-            ))}
-        </div>
+        <Grid
+            images={images}
+        />
     );
 };
 

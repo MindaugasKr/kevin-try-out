@@ -1,21 +1,21 @@
 import store from "../store";
 import { ActionEnum } from "./actionTypes";
 
-export const setActiveImage = (image: number | undefined) => {
+export const setActiveImage = (image: string | undefined) => {
     store.dispatch({
         type: ActionEnum.setActiveImage,
         value: image
     });
 };
 
-export const addToLiked = (image: number) => {
+export const addToLiked = (image: string) => {
     store.dispatch({
         type: ActionEnum.addToLiked,
         value: image
     });
 };
 
-export const removeFromLiked = (image: number) => {
+export const removeFromLiked = (image: string) => {
     store.dispatch({
         type: ActionEnum.removeFromLiked,
         value: image

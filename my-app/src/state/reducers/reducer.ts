@@ -1,8 +1,8 @@
 import { Reducer } from "redux";
 import { ActionEnum} from "../actions/actionTypes";
 
-type TActiveImage = number | undefined;
-type TLikedImages = Set<number>;
+type TActiveImage = string | undefined;
+type TLikedImages = Set<string>;
 
 export type TUNImage = {
     alt_description: string;
