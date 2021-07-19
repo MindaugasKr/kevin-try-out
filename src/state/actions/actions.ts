@@ -1,6 +1,7 @@
 import store from "../store";
 import { ActionEnum } from "./actionTypes";
 import {storeLikedImages} from "../../util/likedImagesStore";
+import {TUNImage} from "../reducers/reducer";
 
 export const setActiveImage = (image: string | undefined) => {
     store.dispatch({
@@ -9,11 +10,11 @@ export const setActiveImage = (image: string | undefined) => {
     });
 };
 
-export const addToLiked = (image: string) => {
+export const addToLiked = (image: TUNImage) => {
     const { likedImages } = store.getState();
 
-    const newLikedImages = new Set(Array.from(likedImages))
-    newLikedImages.add(image);
+    const newLikedImages = new Map(likedImages);
+    newLikedImages.set(image.id, image);
 
     storeLikedImages(newLikedImages);
 
@@ -23,12 +24,11 @@ export const addToLiked = (image: string) => {
     });
 };
 
-export const removeFromLiked = (image: string) => {
+export const removeFromLiked = (id: string) => {
     const { likedImages } = store.getState();
 
-    const newLikedImages = new Set(likedImages);
-    // @ts-ignore
-    newLikedImages.delete(image);
+    const newLikedImages = new Map(likedImages);
+    newLikedImages.delete(id);
 
     storeLikedImages(newLikedImages);
 

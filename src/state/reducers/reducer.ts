@@ -1,15 +1,16 @@
 import { Reducer } from "redux";
 import { ActionEnum} from "../actions/actionTypes";
-import { retireveLikedImages } from "../../util/likedImagesStore";
+import { retrieveLikedImages } from "../../util/likedImagesStore";
 
 type TActiveImage = string | undefined;
-type TLikedImages = Set<string>;
 
 export type TUNImage = {
     id: string;
     alt_description: string;
     urls: { thumb: string }
 }
+
+export type TLikedImages = Map<string, TUNImage>;
 
 export type TState = {
     activeImage: TActiveImage;
@@ -19,7 +20,7 @@ export type TState = {
 
 const initialState: TState = {
     activeImage: undefined,
-    likedImages: retireveLikedImages(),
+    likedImages: retrieveLikedImages(),
     images: undefined
 }
 
