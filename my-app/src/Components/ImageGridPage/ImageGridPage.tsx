@@ -5,7 +5,7 @@ interface IImageGrid {
 
 }
 
-const ImageGrid: FunctionComponent<IImageGrid> = () => {
+const ImageGridPage: FunctionComponent<IImageGrid> = () => {
     return (
         <div>
             ImageGrid placeholder
@@ -15,4 +15,4 @@ const ImageGrid: FunctionComponent<IImageGrid> = () => {
     );
 };
 
-export default ImageGrid;
+export default ImageGridPage;

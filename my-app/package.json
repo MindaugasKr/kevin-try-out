@@ -1,5 +1,5 @@
 {
-  "name": "kevin try out",
+  "name": "kevin-try-out",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -12,7 +12,9 @@
     "@types/react-dom": "^17.0.9",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "redux": "^4.1.0",
     "typescript": "^4.3.5",
     "web-vitals": "^1.1.2"
   },
@@ -41,6 +43,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-router-dom": "^5.1.8",
     "sass": "^1.35.2"
   }
 }

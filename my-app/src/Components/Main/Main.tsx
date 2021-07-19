@@ -1,17 +1,33 @@
-import React, { FunctionComponent } from 'react';
-import Toolbar from "../Toolbar";
-import ImageGrid from "../ImageGrid";
+import React, { FunctionComponent, Suspense } from 'react';
+import {
+    Switch,
+    Route
+} from "react-router-dom";import Toolbar from "../Toolbar";
 
-interface IMain {
+const ImageGridPage = React.lazy(() => import('../ImageGridPage'));
+const LikedPage = React.lazy(() => import('../LikedPage'));
 
-}
-
-const Main: FunctionComponent<IMain> = () => {
+const Main: FunctionComponent = () => {
     return (
-        <div>
-            <ImageGrid/>
+        <main>
+            <Switch>
+                <Route path="/liked">
+                    <Suspense
+                        fallback={null}
+                    >
+                        <LikedPage/>
+                    </Suspense>
+                </Route>
+                <Route path="/">
+                    <Suspense
+                        fallback={null}
+                    >
+                        <ImageGridPage/>
+                    </Suspense>
+                </Route>
+            </Switch>
             <Toolbar/>
-        </div>
+        </main>
     );
 };
 

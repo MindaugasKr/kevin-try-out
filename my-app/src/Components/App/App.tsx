@@ -1,13 +1,14 @@
-import React, {Fragment} from 'react';
+import React from 'react';
+import { BrowserRouter } from "react-router-dom";
 import Main from "../Main";
 import ImageModal from "../ImageModal";
 
 function App() {
   return (
-      <Fragment>
+      <BrowserRouter>
           <Main/>
           <ImageModal/>
-      </Fragment>
+      </BrowserRouter>
   );
 }
 
