@@ -6,14 +6,15 @@ type TActiveImage = string | undefined;
 type TLikedImages = Set<string>;
 
 export type TUNImage = {
+    id: string;
     alt_description: string;
     urls: { thumb: string }
 }
 
-type TState = {
+export type TState = {
     activeImage: TActiveImage;
     likedImages: TLikedImages;
-    images?: TUNImage[]
+    images?: TUNImage[];
 }
 
 const initialState: TState = {

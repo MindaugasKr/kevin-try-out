@@ -3,7 +3,7 @@ import {TUNImage} from "../../state/reducers/reducer";
 import Image from "../Image";
 
 interface IGrid {
-    images: TUNImage;
+    images: TUNImage[];
 }
 
 const Grid: FunctionComponent<IGrid> = ({ images }) => (

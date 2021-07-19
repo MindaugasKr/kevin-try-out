@@ -2,17 +2,20 @@ import React, {FunctionComponent, useEffect} from 'react';
 import { useSelector } from 'react-redux';
 import { getImages } from "../../state/actions/actions";
 import Grid from "../Grid/Grid";
+import {TState} from "../../state/reducers/reducer";
 
-const ImageGridPage: FunctionComponent = () => {
-    // @ts-ignore // TODO: state fix type
-    const { images } = useSelector(state => state);
+const ImageGalleryPage: FunctionComponent = () => {
+    const { images } = useSelector((state: TState) => state);
 
     useEffect(() => {
-        // @ts-ignore // TODO: state fix type
         if (!images) {
             getImages();
         }
     }, [])
+
+    if (!images) {
+        return null;
+    }
 
     return (
         <Grid
@@ -21,4 +24,4 @@ const ImageGridPage: FunctionComponent = () => {
     );
 };
 
-export default ImageGridPage;
+export default ImageGalleryPage;

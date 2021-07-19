@@ -2,6 +2,7 @@ import React, {FunctionComponent, useCallback} from 'react';
 import { useSelector } from 'react-redux';
 import LikeButton from "../Common/LikeButton";
 import { addToLiked, removeFromLiked } from "../../state/actions/actions";
+import {TState} from "../../state/reducers/reducer";
 
 interface IImage {
     id: string;
@@ -10,8 +11,7 @@ interface IImage {
 }
 
 const Image: FunctionComponent<IImage> = ({ id, src, alt }) => {
-    // @ts-ignore // TODO: state fix type
-    const { likedImages } = useSelector(state => state);
+    const { likedImages } = useSelector((state: TState) => state);
     const isLiked = likedImages.has(id);
 
     const handleClick = useCallback(() => {

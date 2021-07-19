@@ -4,7 +4,7 @@ import {
     Route
 } from "react-router-dom";import Toolbar from "../Toolbar";
 
-const ImageGridPage = React.lazy(() => import('../ImageGridPage'));
+const ImageGridPage = React.lazy(() => import('../ImageGalleryPage'));
 const LikedPage = React.lazy(() => import('../LikedPage'));
 
 const Main: FunctionComponent = () => {
