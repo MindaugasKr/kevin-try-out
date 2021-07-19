@@ -9,7 +9,9 @@ const LikedPage = React.lazy(() => import('../LikedPage'));
 
 const Main: FunctionComponent = () => {
     return (
-        <main>
+        <main
+            className="main"
+        >
             <Switch>
                 <Route path="/liked">
                     <Suspense

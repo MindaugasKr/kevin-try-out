@@ -1,0 +1,19 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    .grid {
+        flex: 1;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .main {
+        flex-direction: row;
+
+        .toolbar {
+            order: -1;
+        }
+    }
+}
