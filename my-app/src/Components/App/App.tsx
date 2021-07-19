@@ -1,7 +1,6 @@
 import React, {Fragment} from 'react';
 import Main from "../Main";
 import ImageModal from "../ImageModal";
-import './App.scss';
 
 function App() {
   return (
