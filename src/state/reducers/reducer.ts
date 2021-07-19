@@ -7,26 +7,36 @@ type TActiveImage = string | undefined;
 export type TUNImage = {
     id: string;
     alt_description: string;
-    urls: { thumb: string }
+    urls: {
+        thumb: string;
+        full: string;
+    }
 }
 
-export type TLikedImages = Map<string, TUNImage>;
+export type TImagesMap = Map<string, TUNImage>;
 
 export type TState = {
     activeImage: TActiveImage;
-    likedImages: TLikedImages;
+    likedImages: TImagesMap;
     images?: TUNImage[];
+    imageMap?: TImagesMap;
 }
 
 const initialState: TState = {
     activeImage: undefined,
     likedImages: retrieveLikedImages(),
-    images: undefined
+    images: undefined,
+    imageMap: undefined
 }
+
+type TImagesAndMap = {
+    images: TUNImage[];
+    imageMap: TImagesMap;
+};
 
 type TAction = {
     type: ActionEnum;
-    value: TActiveImage | TLikedImages
+    value: TActiveImage | TImagesMap | TImagesAndMap;
 }
 
 // @ts-ignore
@@ -51,9 +61,12 @@ const reducer: Reducer<TState, TAction> =  (state = initialState, action) => {
             }
         }
         case ActionEnum.getImages: {
+            const { images, imageMap } = action.value as TImagesAndMap;
+
             return {
                 ...state,
-                images: action.value
+                images,
+                imageMap
             }
         }
         default: return state;

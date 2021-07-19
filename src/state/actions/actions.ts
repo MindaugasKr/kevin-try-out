@@ -3,13 +3,6 @@ import { ActionEnum } from "./actionTypes";
 import {storeLikedImages} from "../../util/likedImagesStore";
 import {TUNImage} from "../reducers/reducer";
 
-export const setActiveImage = (image: string | undefined) => {
-    store.dispatch({
-        type: ActionEnum.setActiveImage,
-        value: image
-    });
-};
-
 export const addToLiked = (image: TUNImage) => {
     const { likedImages } = store.getState();
 
@@ -46,10 +39,20 @@ export const getImages = async () => {
         }
     })
 
-    const data = await response.json();
+    const images = await response.json();
 
-    store.dispatch({
-        type: ActionEnum.getImages,
-        value: data
-    });
+    if (Array.isArray(images) && images.length) {
+        const imageMap = images.reduce((map, image) => {
+            map.set(image.id, image);
+            return map;
+        }, new Map());
+
+        store.dispatch({
+            type: ActionEnum.getImages,
+            value: {
+                images,
+                imageMap
+            }
+        });
+    }
 };

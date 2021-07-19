@@ -1,8 +1,8 @@
-import React, { FunctionComponent } from 'react';
+import React, {FunctionComponent} from 'react';
 import favorite from '../../../images/like.svg';
 
 interface ILikeButton {
-    clickCallback: () => void;
+    clickCallback: (args: any) => void;
     isActive?: boolean;
 }
 
