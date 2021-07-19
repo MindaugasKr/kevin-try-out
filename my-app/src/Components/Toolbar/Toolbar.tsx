@@ -1,12 +1,23 @@
 import React, { FunctionComponent } from 'react';
+import Logo from "../Common/Logo";
+import GalleryButton from "../Common/GalleryButton";
+import LikeButton from "../Common/LikeButton";
 
-interface IToolbar {
-
-}
-
-const Toolbar: FunctionComponent<IToolbar> = () => {
+const Toolbar: FunctionComponent = () => {
     return (
-        <div>Toolbar placeholder</div>
+        <div
+            className="toolbar"
+        >
+            <Logo/>
+            <GalleryButton
+                clickCallback={() => {}}
+                isActive={true}
+            />
+            <LikeButton
+                clickCallback={() => {}}
+                isActive={false}
+            />
+        </div>
     );
 };
 

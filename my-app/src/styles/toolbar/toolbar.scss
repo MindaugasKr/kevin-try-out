@@ -1,0 +1,41 @@
+@import "logo";
+
+.toolbar {
+    $vertical-padding: 16px;
+    $horizontal-padding: 24px;
+
+    align-items: center;
+    background-color: $color-gray-2;
+    display: flex;
+    justify-content: center;
+    padding: $vertical-padding $horizontal-padding;
+    position: relative;
+
+    & .logo {
+        left: $horizontal-padding;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    & .gallery-button, .like-button {
+        padding: 15.27px;
+    }
+
+    & .gallery-button--active, .like-button--active {
+        background-color: $color-gray-3;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .toolbar {
+        flex-direction: column;
+        padding: 49.2px 12px;
+
+        & .logo {
+            top: 49.2px;
+            left: 50px;
+            transform: translateX(-50%);
+        }
+    }
+}
