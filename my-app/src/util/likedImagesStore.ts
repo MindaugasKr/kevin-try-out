@@ -1,8 +1,9 @@
 import {LIKED_IMAGED_STORAGE_KEY} from "../constants/storage";
 
-export const retireveLikedImages = () => {
+export const retireveLikedImages = (): Set<string> => {
     const imageJson = window.localStorage.getItem(LIKED_IMAGED_STORAGE_KEY);
-    return imageJson && JSON.parse(imageJson) || new Set()
+    const storedIds = imageJson && JSON.parse(imageJson) || [];
+    return new Set(storedIds);
 }
 
 export const storeLikedImages = (likedImages: Set<string>) => {
