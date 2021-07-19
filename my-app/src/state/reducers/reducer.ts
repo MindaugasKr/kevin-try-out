@@ -1,17 +1,24 @@
 import { Reducer } from "redux";
-import { ActionEnum} from "../actions/actions";
+import { ActionEnum} from "../actions/actionTypes";
 
 type TActiveImage = number | undefined;
 type TLikedImages = Set<number>;
 
+export type TUNImage = {
+    alt_description: string;
+    urls: { thumb: string }
+}
+
 type TState = {
     activeImage: TActiveImage;
     likedImages: TLikedImages;
+    images?: TUNImage[]
 }
 
 const initialState: TState = {
     activeImage: undefined,
-    likedImages: new Set()
+    likedImages: new Set(),
+    images: undefined
 }
 
 type TAction = {
@@ -45,6 +52,12 @@ const reducer: Reducer<TState, TAction> =  (state = initialState, action) => {
             return {
                 ...state,
                 likedImages
+            }
+        }
+        case ActionEnum.getImages: {
+            return {
+                ...state,
+                images: action.value
             }
         }
         default: return state;

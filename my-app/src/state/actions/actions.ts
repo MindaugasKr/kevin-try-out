@@ -1,10 +1,5 @@
 import store from "../store";
-
-export enum ActionEnum {
-    setActiveImage = "setActiveImage",
-    addToLiked = "addToLiked",
-    removeFromLiked = "removeFromLiked",
-}
+import { ActionEnum } from "./actionTypes";
 
 export const setActiveImage = (image: number | undefined) => {
     store.dispatch({
@@ -24,5 +19,23 @@ export const removeFromLiked = (image: number) => {
     store.dispatch({
         type: ActionEnum.removeFromLiked,
         value: image
+    });
+};
+
+export const getImages = async () => {
+    const response = await fetch('https://api.unsplash.com/photos', {
+        method: 'GET',
+        headers: {
+            Authorization: 'Client-ID V7AzeG-3fl9XxCQUc6RfsANaE5CXdYHyCRUqKyJ2v5A'
+        }
+    })
+
+    const data = await response.json();
+
+    console.info('data', data)
+
+    store.dispatch({
+        type: ActionEnum.getImages,
+        value: data
     });
 };

@@ -1,12 +1,16 @@
 import React, { FunctionComponent } from 'react';
 
 interface IImage {
-
+    src: string;
+    alt: string;
 }
 
-const Image: FunctionComponent<IImage> = () => {
+const Image: FunctionComponent<IImage> = ({ src, alt }) => {
     return (
-        <div>Image placeholder</div>
+        <div>
+
+            <img src={src} alt={alt} />
+        </div>
     );
 };
 
