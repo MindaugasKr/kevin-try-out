@@ -1,12 +1,15 @@
 import React, { FunctionComponent } from 'react';
+import {useSelector} from "react-redux";
+import Grid from "../Grid/Grid";
+import {TState} from "../../state/reducers/reducer";
 
-interface ILikedPage {
+const LikedPage: FunctionComponent = ( ) => {
+    const { likedImages } = useSelector((state: TState) => state);
 
-}
-
-const LikedPage: FunctionComponent<ILikedPage> = ( ) => {
     return (
-        <div>LikedPage</div>
+        <Grid
+            images={Array.from(likedImages, ([, image]) => image)}
+        />
     );
 };
 
