@@ -1,9 +1,90 @@
 .grid {
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
+
+    &__column {
+        flex-grow: 1;
+        width: 0;
+
+        &:not(:first-child) {
+            margin-left: 12px;
+        }
+
+        &:not(:last-child) {
+            margin-right: 12px;
+        }
+
+        &--first-small {
+            .image-card {
+                &:nth-child(n) {
+                    height: 90px;
+                }
+
+                &:nth-child(2n) {
+                    height: 180px;
+                }
+            }
+        }
+
+        &--first-big {
+            .image-card {
+                &:nth-child(n) {
+                    height: 180px;
+                }
+
+                &:nth-child(2n) {
+                    height: 90px;
+                }
+            }
+        }
+
+    }
 
     .image-card {
-        width: 50%;
+        width: 100%;
+
+        &:not(:last-child) {
+            margin-bottom: 24px;
+        }
+
+        &__link {
+            height: inherit;
+            width: inherit;
+        }
+
+        &__image {
+            height: inherit;
+            width: inherit;
+        }
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .grid {
+        &__column {
+            &--first-small {
+                .image-card {
+                    &:nth-child(n) {
+                        height: 138px;
+                    }
+
+                    &:nth-child(2n) {
+                        height: 277px;
+                    }
+                }
+            }
+
+            &--first-big {
+                .image-card {
+                    &:nth-child(n) {
+                        height: 277px;
+                    }
+
+                    &:nth-child(2n) {
+                        height: 138px;
+                    }
+                }
+            }
+
+        }
     }
 }

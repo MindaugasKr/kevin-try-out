@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import {useSelector} from "react-redux";
-import Grid from "../Grid/Grid";
+import Grid from "../Grid";
 import {TState} from "../../state/reducers/reducer";
 
 const LikedPage: FunctionComponent = ( ) => {

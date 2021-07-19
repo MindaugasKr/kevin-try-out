@@ -32,9 +32,13 @@ const Image: FunctionComponent<IImage> = ({image}) => {
         >
             <Link
                 to={`?image=${id}`}
-                className="image-card"
+                className="image-card__link"
             >
-                <img src={urls.thumb} alt={altDescription} />
+                <img
+                    src={urls.thumb}
+                    alt={altDescription}
+                    className="image-card__image"
+                />
             </Link>
             <LikeButton
                 clickCallback={handleLikeClick}

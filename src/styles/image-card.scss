@@ -1,5 +1,10 @@
 .image-card {
+    display: inline-block;
     position: relative;
+
+    &__image {
+        object-fit: cover;
+    }
 
     .like-button {
         position: absolute;
