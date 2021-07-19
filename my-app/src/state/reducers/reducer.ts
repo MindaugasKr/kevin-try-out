@@ -1,5 +1,6 @@
 import { Reducer } from "redux";
 import { ActionEnum} from "../actions/actionTypes";
+import { retireveLikedImages } from "../../util/likedImagesStore";
 
 type TActiveImage = string | undefined;
 type TLikedImages = Set<string>;
@@ -17,7 +18,7 @@ type TState = {
 
 const initialState: TState = {
     activeImage: undefined,
-    likedImages: new Set(),
+    likedImages: retireveLikedImages(),
     images: undefined
 }
 
@@ -36,22 +37,15 @@ const reducer: Reducer<TState, TAction> =  (state = initialState, action) => {
             }
         }
         case ActionEnum.addToLiked: {
-            const likedImages = new Set([...Array.from(state.likedImages), action.value])
-
             return {
                 ...state,
-                likedImages
+                likedImages: action.value
             }
         }
         case ActionEnum.removeFromLiked: {
-            const likedImagesCopy = new Set(Array.from(state.likedImages));
-            // @ts-ignore
-            likedImagesCopy.delete(action.value);
-            const likedImages = new Set(Array.from(likedImagesCopy));
-
             return {
                 ...state,
-                likedImages
+                likedImages: action.value
             }
         }
         case ActionEnum.getImages: {

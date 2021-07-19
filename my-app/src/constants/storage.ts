@@ -1,0 +1,1 @@
+export const LIKED_IMAGED_STORAGE_KEY = 'LIKED_IMAGED';
