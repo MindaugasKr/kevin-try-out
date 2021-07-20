@@ -7,17 +7,21 @@ import close from '../../images/close.svg';
 const ImageModal: FunctionComponent = () => {
     const history = useHistory();
 
-    const { imageMap } = useSelector((state: TState) => state);
+    const { imageMap, likedImages } = useSelector((state: TState) => state);
 
     const { search } = useLocation();
 
     const id = (new URLSearchParams(search)).get('image');
 
-    const image = id && imageMap && imageMap.get(id);
-
     const handleClose = useCallback(() => {
         history.push(history.location.pathname);
     }, []);
+
+    if (!id) {
+        return null;
+    }
+
+    const image = imageMap && imageMap.get(id) || likedImages && likedImages.get(id);
 
     if (!image) {
         return null;
