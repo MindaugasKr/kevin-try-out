@@ -2,18 +2,40 @@
     display: inline-block;
     position: relative;
 
-    &__image {
-        object-fit: cover;
-    }
-
     .like-button {
+        display: none;
         position: absolute;
         top: 10px;
         right: 10px;
         background-color: $color-gray-3;
 
+        &:hover {
+            background-color: lighten($color-gray-3, 10%);
+        }
+
         &--active {
+            display: flex;
             background-color: $color-blue-2;
+
+            &:hover {
+                background-color: lighten($color-blue-2, 10%);
+            }
+        }
+    }
+
+    &__image {
+        border-radius: 10px;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        object-fit: cover;
+    }
+
+    &:hover {
+        & .image-card__image {
+            filter: brightness(1.1);
+        }
+
+        & .like-button {
+            display: flex;
         }
     }
 }
