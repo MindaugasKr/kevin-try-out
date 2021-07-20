@@ -18,12 +18,24 @@
         transform: translateY(-50%);
     }
 
+    & .gallery-button {
+        margin: 0 5px 0 0;
+    }
+
     & .gallery-button, .like-button {
         padding: 15.27px;
+
+        &:hover {
+            background-color: lighten($color-gray-2, 10%);
+        }
     }
 
     & .gallery-button--active, .like-button--active {
         background-color: $color-gray-3;
+
+        &:hover {
+            background-color: $color-gray-3;
+        }
     }
 }
 
@@ -36,6 +48,10 @@
             top: 49.2px;
             left: 50%;
             transform: translateX(-50%);
+        }
+
+        & .gallery-button {
+            margin: 0 0 5px 0;
         }
     }
 }
