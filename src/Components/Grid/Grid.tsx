@@ -61,7 +61,7 @@ const Grid: FunctionComponent<IGrid> = ({ images }) => {
         })
 
         return columns;
-    }, [columnCount]);
+    }, [images, columnCount]);
 
     return (
         <div
